@@ -12,9 +12,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
-                <span className="font-black text-background-dark text-xl">A</span>
-              </div>
+              {settings.logo_url ? (
+                <img src={settings.logo_url} alt="Logo" className="h-10" />
+              ) : (
+                <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
+                  <span className="font-black text-background-dark text-xl">A</span>
+                </div>
+              )}
               <div className="flex flex-col">
                 <span className="font-black text-base tracking-tight leading-none mb-1">Apennines Art & Design Studio</span>
                 <span className="font-bold text-xs tracking-widest leading-none text-white/80">亚平宁工作室</span>
@@ -66,14 +70,22 @@ export default function Footer() {
 
             <div className="flex gap-6 shrink-0">
               <div className="flex flex-col items-center gap-3">
-                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20">
-                  <span className="text-white/30 text-xs text-center px-2">公众号<br />二维码</span>
+                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20 overflow-hidden">
+                  {settings.qr_gongzhonghao ? (
+                    <img src={settings.qr_gongzhonghao} alt="公众号二维码" className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-white/30 text-xs text-center px-2">公众号<br />二维码</span>
+                  )}
                 </div>
                 <span className="text-xs text-white/50">关注公众号</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20">
-                  <span className="text-white/30 text-xs text-center px-2">客服微信<br />二维码</span>
+                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20 overflow-hidden">
+                  {settings.qr_wechat ? (
+                    <img src={settings.qr_wechat} alt="客服微信二维码" className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-white/30 text-xs text-center px-2">客服微信<br />二维码</span>
+                  )}
                 </div>
                 <span className="text-xs text-white/50">添加客服微信</span>
               </div>

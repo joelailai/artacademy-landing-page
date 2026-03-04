@@ -26,7 +26,10 @@ INSERT INTO site_settings (key, value, description) VALUES
 ('stat_acceptance_rate', '98%', '录取率'),
 ('stat_partner_academies', '15+', '合作美院数量'),
 ('stat_success_cases', '2000+', '成功案例数量'),
-('stat_years', '5+', '办学年限')
+('stat_years', '5+', '办学年限'),
+-- 二维码图片
+('qr_wechat', '', '客服微信二维码图片 URL'),
+('qr_gongzhonghao', '', '公众号二维码图片 URL')
 ON CONFLICT (key) DO NOTHING;
 
 -- RLS 策略

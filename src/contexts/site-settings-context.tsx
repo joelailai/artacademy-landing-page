@@ -21,6 +21,9 @@ const DEFAULT_SETTINGS: SiteSettings = {
     stat_partner_academies: '15+',
     stat_success_cases: '2000+',
     stat_years: '5+',
+    qr_wechat: '',
+    qr_gongzhonghao: '',
+    logo_url: '',
 };
 
 const SiteSettingsContext = createContext<SiteSettings>(DEFAULT_SETTINGS);

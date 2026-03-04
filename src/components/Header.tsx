@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ContactModal from './ContactModal';
+import { useSiteSettings } from '../contexts/site-settings-context';
+import type { SiteSettings } from '../services/api';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useLocation();
+  const settings = useSiteSettings() as SiteSettings;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,17 +21,21 @@ export default function Header() {
   }, []);
 
   const isDarkPage = location.pathname === '/faculty';
-  const headerBg = isScrolled 
-    ? (isDarkPage ? 'bg-background-dark/90 text-white' : 'bg-white/90 text-slate-900') 
+  const headerBg = isScrolled
+    ? (isDarkPage ? 'bg-background-dark/90 text-white' : 'bg-white/90 text-slate-900')
     : (isDarkPage ? 'bg-transparent text-white' : 'bg-transparent text-slate-900');
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled ? 'shadow-sm py-4' : 'py-6'} ${headerBg}`}>
+    <header className={`fixed top - 0 w - full z - 50 transition - all duration - 300 backdrop - blur - md ${isScrolled ? 'shadow-sm py-4' : 'py-6'} ${headerBg} `}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
-            <span className="font-black text-background-dark text-xl">A</span>
-          </div>
+          {settings.logo_url ? (
+            <img src={settings.logo_url} alt="Logo" className="h-10" />
+          ) : (
+            <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
+              <span className="font-black text-background-dark text-xl">A</span>
+            </div>
+          )}
           <div className="flex flex-col">
             <span className="font-black text-sm md:text-base tracking-tight leading-none mb-1">Apennines Art & Design Studio</span>
             <span className="font-bold text-xs tracking-widest leading-none">亚平宁工作室</span>
@@ -45,10 +52,10 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className={`p-2 rounded-full transition-colors ${isDarkPage ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}>
+          <button className={`p - 2 rounded - full transition - colors ${isDarkPage ? 'hover:bg-white/10' : 'hover:bg-slate-100'} `}>
             <Search size={20} />
           </button>
-          <button 
+          <button
             onClick={() => setIsContactModalOpen(true)}
             className="bg-primary text-background-dark px-6 py-2.5 rounded-full text-sm font-bold hover:bg-white hover:text-background-dark transition-all"
           >
@@ -70,7 +77,7 @@ export default function Header() {
           <Link to="/faculty" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">师资 FACULTY</Link>
           <Link to="/cases" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">优秀案例 CASES</Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">关于 ABOUT</Link>
-          <button 
+          <button
             onClick={() => {
               setIsMobileMenuOpen(false);
               setIsContactModalOpen(true);
@@ -81,7 +88,7 @@ export default function Header() {
           </button>
         </div>
       )}
-      
+
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </header>
   );
