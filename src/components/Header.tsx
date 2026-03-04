@@ -26,7 +26,7 @@ export default function Header() {
     : (isDarkPage ? 'bg-transparent text-white' : 'bg-transparent text-slate-900');
 
   return (
-    <header className={`fixed top - 0 w - full z - 50 transition - all duration - 300 backdrop - blur - md ${isScrolled ? 'shadow-sm py-4' : 'py-6'} ${headerBg} `}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled ? 'shadow-sm py-4' : 'py-6'} ${headerBg}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           {settings.logo_url ? (
@@ -52,7 +52,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className={`p - 2 rounded - full transition - colors ${isDarkPage ? 'hover:bg-white/10' : 'hover:bg-slate-100'} `}>
+          <button className={`p-2 rounded-full transition-colors ${isDarkPage ? 'hover:bg-white/10' : 'hover:bg-slate-100'}`}>
             <Search size={20} />
           </button>
           <button
