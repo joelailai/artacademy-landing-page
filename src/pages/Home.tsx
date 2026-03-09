@@ -10,7 +10,8 @@ import {
   Palette
 } from 'lucide-react';
 import { useSiteSettings } from '../contexts/site-settings-context';
-import type { SiteSettings } from '../services/api';
+import { useSupabaseQuery } from '../hooks/use-supabase-query';
+import { fetchFaculty, type SiteSettings, type FacultyMember } from '../services/api';
 
 const Hero = () => {
   const settings = useSiteSettings() as SiteSettings;
@@ -239,23 +240,16 @@ const Curriculum = () => {
 };
 
 const Faculty = () => {
-  const faculty = [
-    {
-      name: 'Prof. Alessandro',
-      title: '前佛罗伦萨美院教授 / 雕塑系主任',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBWpMeF83DNVODSolo9AT4t1LA9APKW8yU7TN9AASU9uqrzlnGy2oMY8QsQtw6Rhi2g5aKe1TfDCUKsORUZcuVAGetSgEF59JbQPjSACPPGQt0_SDsj6TdnEGIZBbpwNncGzTUWYrY6p7mUpYOdC2QtuLM3nnRLq9nv2o-TSmBJlVcIIEX_1gbbOtBeDFdcYTBtOkPcqlvNB99vkr9RHOaR_hy6RIW3__eECse0H7cfarfLPf7eBP7jGiOpZO56Bdt6Gy4kQFIgIru9'
-    },
-    {
-      name: 'Dr. Beatrice',
-      title: '米兰理工大学建筑学博士 / 独立设计师',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjgxnWEBdrBYTCanFJ7bbbqe43j3X3i9jXQTqohTCfxPXX9WzK_wu_t3ni0Kw5YQhgs6LikP_akBpx198mxBgkvi3JoWFkocB6mT1mQI-ypYBeu0G_X4WP70_UC3XtE6onGmpuJJJLxfQDqdBM3mmSCfKDwE2cfQiGp1aVqqBiREvlg6albCGEaKAew96_Td5SKNIT1nuGkbD_1qTkDEjzBtFBJ-1DECGBdEUdqDDgFCMFp6ykraPDUSxXUVMDYGKRLjDjAIHO10SC'
-    },
-    {
-      name: 'Giulia M.',
-      title: '马兰欧尼时装学院资深导师 / 品牌主理人',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBO_cePkZLJ38MgRYiLQqtsnDkSCCdWGg2iIWpSBjCGz1O5ygFTjKh1El9M5suvNuwHCQOTZ_p4id7qxp-qxFFQcK20-iwGQ9ZHi_jrLFhkE4YgGCN8kkiHxjq4l29-SDA85I3zKkJPFSuKBojMpnWv3u94GzkPITxX2YNspXbNE8TjV7UZ2_DOvdG2WDqQx_V0K4WS_mAhmnc8-61t9ybnAxi_oXYxZXx7knknaGDZ1JufnyQz8T4hCrhlnyhyCUB8PEsZ3y9w8sxs'
-    }
+  const FALLBACK_FACULTY: FacultyMember[] = [
+    { id: 1, name: 'Prof. Alessandro', title: '前佛罗伦萨美院教授 / 雕塑系主任', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBWpMeF83DNVODSolo9AT4t1LA9APKW8yU7TN9AASU9uqrzlnGy2oMY8QsQtw6Rhi2g5aKe1TfDCUKsORUZcuVAGetSgEF59JbQPjSACPPGQt0_SDsj6TdnEGIZBbpwNncGzTUWYrY6p7mUpYOdC2QtuLM3nnRLq9nv2o-TSmBJlVcIIEX_1gbbOtBeDFdcYTBtOkPcqlvNB99vkr9RHOaR_hy6RIW3__eECse0H7cfarfLPf7eBP7jGiOpZO56Bdt6Gy4kQFIgIru9', sort_order: 1 },
+    { id: 2, name: 'Dr. Beatrice', title: '米兰理工大学建筑学博士 / 独立设计师', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjgxnWEBdrBYTCanFJ7bbbqe43j3X3i9jXQTqohTCfxPXX9WzK_wu_t3ni0Kw5YQhgs6LikP_akBpx198mxBgkvi3JoWFkocB6mT1mQI-ypYBeu0G_X4WP70_UC3XtE6onGmpuJJJLxfQDqdBM3mmSCfKDwE2cfQiGp1aVqqBiREvlg6albCGEaKAew96_Td5SKNIT1nuGkbD_1qTkDEjzBtFBJ-1DECGBdEUdqDDgFCMFp6ykraPDUSxXUVMDYGKRLjDjAIHO10SC', sort_order: 2 },
+    { id: 3, name: 'Giulia M.', title: '马兰欧尼时装学院资深导师 / 品牌主理人', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBO_cePkZLJ38MgRYiLQqtsnDkSCCdWGg2iIWpSBjCGz1O5ygFTjKh1El9M5suvNuwHCQOTZ_p4id7qxp-qxFFQcK20-iwGQ9ZHi_jrLFhkE4YgGCN8kkiHxjq4l29-SDA85I3zKkJPFSuKBojMpnWv3u94GzkPITxX2YNspXbNE8TjV7UZ2_DOvdG2WDqQx_V0K4WS_mAhmnc8-61t9ybnAxi_oXYxZXx7knknaGDZ1JufnyQz8T4hCrhlnyhyCUB8PEsZ3y9w8sxs', sort_order: 3 }
   ];
+
+  const { data: facultyResponse } = useSupabaseQuery(fetchFaculty, FALLBACK_FACULTY);
+
+  // 只在首页展示前三个导师
+  const faculty = facultyResponse.slice(0, 3);
 
   return (
     <section className="py-24 bg-background-dark text-white">
@@ -265,9 +259,9 @@ const Faculty = () => {
             <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">International Faculty</div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">连接中意艺术桥梁<br />国际艺术导师</h2>
           </div>
-          <button className="flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors">
+          <Link to="/faculty" className="flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors">
             查看全部导师 <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -276,7 +270,7 @@ const Faculty = () => {
               <div className="relative h-[400px] overflow-hidden rounded-xl mb-6">
                 <div
                   className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${member.image}')` }}
+                  style={{ backgroundImage: `url('${member.image_url}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
