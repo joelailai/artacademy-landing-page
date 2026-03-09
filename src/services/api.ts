@@ -61,6 +61,7 @@ export interface CaseItem {
     major: string;
     image_url: string | null;
     tags: string[];
+    link_url?: string | null;
     sort_order: number;
 }
 

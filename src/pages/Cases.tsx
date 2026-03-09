@@ -31,7 +31,14 @@ export default function Cases() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {cases.map((item) => (
-            <div key={item.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer">
+            <a
+              key={item.id}
+              href={item.link_url || '#'}
+              target={item.link_url ? "_blank" : undefined}
+              rel={item.link_url ? "noopener noreferrer" : undefined}
+              onClick={(e) => { if (!item.link_url) e.preventDefault(); }}
+              className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer block"
+            >
               <div className="relative h-[300px] overflow-hidden">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -64,7 +71,7 @@ export default function Cases() {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
