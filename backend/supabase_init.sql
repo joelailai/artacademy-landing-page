@@ -166,10 +166,10 @@ INSERT INTO campuses (slug, name, subtitle, address, description, courses, insti
 ),
 (
     'milan',
-    '米兰设计中心',
+    '米兰校区',
     'Milan Campus',
     'Via Tortona 35, Milano, Italy',
-    '位于全球时尚与设计之都的核心区域。米兰设计中心配备了顶尖的数字媒体实验室、打版工作室和材料库，紧密连接产业前沿，专注于设计与时尚类专业辅导。',
+    '位于全球时尚与设计之都的核心区域。米兰校区配备了顶尖的数字媒体实验室、打版工作室和材料库，紧密连接产业前沿，专注于设计与时尚类专业辅导。',
     '[
         {"name": "服装与时尚设计", "description": "从概念版型到成衣制作，对接一线奢侈品牌标准。"},
         {"name": "室内与空间设计", "description": "涵盖商业空间、住宅及展览展示设计，强化软件技能。"},

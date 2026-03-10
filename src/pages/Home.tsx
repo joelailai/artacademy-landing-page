@@ -131,7 +131,7 @@ const Campuses = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-primary text-xs font-bold tracking-widest mb-2">MILAN CAMPUS</div>
-                  <h3 className="text-3xl font-bold text-white mb-2">米兰设计中心</h3>
+                  <h3 className="text-3xl font-bold text-white mb-2">米兰校区</h3>
                   <p className="text-white/70 text-sm max-w-sm">位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">

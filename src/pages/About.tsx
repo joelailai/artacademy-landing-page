@@ -55,7 +55,7 @@ export default function About() {
               <p className="text-slate-600 text-center">
                 <strong>佛罗伦萨主校区:</strong><br />
                 {settings.address_florence}<br /><br />
-                <strong>米兰设计中心:</strong><br />
+                <strong>米兰校区:</strong><br />
                 {settings.address_milan}
               </p>
             </div>
