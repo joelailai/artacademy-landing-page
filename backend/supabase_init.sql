@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS campuses (
     subtitle TEXT,
     address TEXT NOT NULL,
     description TEXT,
-    courses JSONB DEFAULT '[]',
-    institutions JSONB DEFAULT '[]',
+    admission_results JSONB DEFAULT '[]',
+    activities JSONB DEFAULT '[]',
     gallery_images TEXT[] DEFAULT '{}',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );

@@ -12,16 +12,18 @@ const FALLBACK_CAMPUS: Campus = {
   subtitle: 'Florence Campus',
   address: 'Via del Pignoncino 9, Firenze, Italy',
   description: '毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息。佛罗伦萨主校区拥有宽敞明亮的画室、雕塑工坊和艺术史图书馆，为纯艺术方向的学生提供最纯正的意式艺术教育环境。',
-  courses: [
-    { name: '纯艺术 (绘画/雕塑/版画)', description: '传统技法与当代观念结合，大师级教授亲自指导。' },
-    { name: '舞台美术设计', description: '结合意大利丰富的歌剧与戏剧资源进行实操。' },
-    { name: '艺术史与策展', description: '利用佛罗伦萨得天独厚的博物馆资源进行现场教学。' },
+  admission_results: [
+    'https://picsum.photos/seed/adm1/600/848',
+    'https://picsum.photos/seed/adm2/600/848',
+    'https://picsum.photos/seed/adm3/600/848',
+    'https://picsum.photos/seed/adm4/600/848',
+    'https://picsum.photos/seed/adm5/600/848',
   ],
-  institutions: [
-    { name: '佛罗伦萨美术学院', name_it: 'Accademia di Belle Arti di Firenze', featured: true },
-    { name: '罗马美术学院', name_it: 'Accademia di Belle Arti di Roma', featured: false },
-    { name: '博洛尼亚美术学院', name_it: 'Accademia di Belle Arti di Bologna', featured: false },
-    { name: '米兰布雷拉美术学院', name_it: 'Accademia di Belle Arti di Brera', featured: false },
+  activities: [
+    { image_url: 'https://picsum.photos/seed/act1/800/600', description: '乌菲兹美术馆大师画作临摹课' },
+    { image_url: 'https://picsum.photos/seed/act2/800/600', description: '佛罗伦萨双年展参展观摩' },
+    { image_url: 'https://picsum.photos/seed/act3/800/600', description: '文艺复兴雕塑技法工坊' },
+    { image_url: 'https://picsum.photos/seed/act4/800/600', description: '美院教授面对面作品集评估' },
   ],
   gallery_images: [
     'https://picsum.photos/seed/flor1/600/800',
@@ -73,35 +75,34 @@ export default function CampusFlorence() {
           </div>
         </div>
 
-        {/* Courses & Institutions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
-          <div>
-            <h2 className="text-3xl font-bold mb-8">专业课程</h2>
-            <ul className="space-y-4">
-              {campusData.courses.map((course, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                  <CheckCircle className="text-primary shrink-0 mt-1" size={20} />
-                  <div>
-                    <h4 className="font-bold text-lg">{course.name}</h4>
-                    <p className="text-slate-500 text-sm mt-1">{course.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* Admission Results - Horizontal Scroll A4 Gallery */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">录取成果</h2>
+          <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar">
+            {campusData.admission_results?.map((img, i) => (
+              <div
+                key={i}
+                className="shrink-0 w-72 md:w-80 aspect-[1/1.414] rounded-xl bg-slate-100 overflow-hidden shadow-sm snap-start"
+              >
+                <img src={img} alt={`录取成果 ${i + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-8">针对院校</h2>
-            <ul className="space-y-4">
-              {campusData.institutions.map((inst, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                  <Star className={`shrink-0 mt-1 ${inst.featured ? 'text-yellow-500 fill-yellow-500' : 'text-slate-300'}`} size={20} />
-                  <div>
-                    <h4 className="font-bold text-lg">{inst.name}</h4>
-                    <p className="text-sm text-slate-400 italic">{inst.name_it}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        </div>
+
+        {/* Practical Activities - 4 Grid Layout */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">实践活动</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {campusData.activities?.slice(0, 4).map((activity, i) => (
+              <div key={i} className="flex flex-col gap-4">
+                <div
+                  className="aspect-[4/3] rounded-2xl bg-cover bg-center bg-slate-100 overflow-hidden shadow-sm"
+                  style={{ backgroundImage: `url('${activity.image_url}')` }}
+                ></div>
+                <p className="text-slate-600 font-medium px-2">{activity.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 

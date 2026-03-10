@@ -12,15 +12,18 @@ const FALLBACK_CAMPUS: Campus = {
   subtitle: 'Milan Campus',
   address: 'Via Tortona 35, Milano, Italy',
   description: '位于全球时尚与设计之都的核心区域。米兰校区配备了顶尖的数字媒体实验室、打版工作室和材料库，紧密连接产业前沿，专注于设计与时尚类专业辅导。',
-  courses: [
-    { name: '服装与时尚设计', description: '从概念版型到成衣制作，对接一线奢侈品牌标准。' },
-    { name: '室内与空间设计', description: '涵盖商业空间、住宅及展览展示设计，强化软件技能。' },
-    { name: '产品与交互设计', description: '聚焦用户体验与可持续设计，配备3D打印等原型制作设备。' },
+  admission_results: [
+    'https://picsum.photos/seed/milan_adm1/600/848',
+    'https://picsum.photos/seed/milan_adm2/600/848',
+    'https://picsum.photos/seed/milan_adm3/600/848',
+    'https://picsum.photos/seed/milan_adm4/600/848',
+    'https://picsum.photos/seed/milan_adm5/600/848',
   ],
-  institutions: [
-    { name: '米兰理工大学', name_it: 'Politecnico di Milano', featured: true },
-    { name: '马兰欧尼时装学院', name_it: 'Istituto Marangoni', featured: false },
-    { name: 'NABA 新美术学院', name_it: 'Nuova Accademia di Belle Arti', featured: false },
+  activities: [
+    { image_url: 'https://picsum.photos/seed/milan_act1/800/600', description: '米兰设计周（Salone del Mobile）参展考察' },
+    { image_url: 'https://picsum.photos/seed/milan_act2/800/600', description: 'Prada 基金会当代美术馆深度导览' },
+    { image_url: 'https://picsum.photos/seed/milan_act3/800/600', description: '服装设计工坊：成衣剪裁与面料实验' },
+    { image_url: 'https://picsum.photos/seed/milan_act4/800/600', description: '米兰理工教授交互设计体验课' },
   ],
   gallery_images: [
     'https://picsum.photos/seed/milan1/600/800',
@@ -71,35 +74,34 @@ export default function CampusMilan() {
           </div>
         </div>
 
-        {/* Courses & Institutions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
-          <div>
-            <h2 className="text-3xl font-bold mb-8">专业课程</h2>
-            <ul className="space-y-4">
-              {campusData.courses.map((course, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                  <CheckCircle className="text-primary shrink-0 mt-1" size={20} />
-                  <div>
-                    <h4 className="font-bold text-lg">{course.name}</h4>
-                    <p className="text-slate-500 text-sm mt-1">{course.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* Admission Results - Horizontal Scroll A4 Gallery */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">录取成果</h2>
+          <div className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar">
+            {campusData.admission_results?.map((img, i) => (
+              <div
+                key={i}
+                className="shrink-0 w-72 md:w-80 aspect-[1/1.414] rounded-xl bg-slate-100 overflow-hidden shadow-sm snap-start"
+              >
+                <img src={img} alt={`米兰录取成果 ${i + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-8">针对院校</h2>
-            <ul className="space-y-4">
-              {campusData.institutions.map((inst, i) => (
-                <li key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                  <Star className={`shrink-0 mt-1 ${inst.featured ? 'text-yellow-500 fill-yellow-500' : 'text-slate-300'}`} size={20} />
-                  <div>
-                    <h4 className="font-bold text-lg">{inst.name}</h4>
-                    <p className="text-sm text-slate-400 italic">{inst.name_it}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        </div>
+
+        {/* Practical Activities - 4 Grid Layout */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">实践活动</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {campusData.activities?.slice(0, 4).map((activity, i) => (
+              <div key={i} className="flex flex-col gap-4">
+                <div
+                  className="aspect-[4/3] rounded-2xl bg-cover bg-center bg-slate-100 overflow-hidden shadow-sm"
+                  style={{ backgroundImage: `url('${activity.image_url}')` }}
+                ></div>
+                <p className="text-slate-600 font-medium px-2">{activity.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -83,8 +83,8 @@ export interface Campus {
     subtitle: string | null;
     address: string;
     description: string | null;
-    courses: CampusCourse[];
-    institutions: CampusInstitution[];
+    admission_results: string[];
+    activities: { image_url: string; description: string }[];
     gallery_images: string[];
 }
 
