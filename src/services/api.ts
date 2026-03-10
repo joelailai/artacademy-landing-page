@@ -109,7 +109,6 @@ export interface HomeCurriculum {
     sort_order: number;
     number_label: string;
     title_cn: string;
-    title_en: string;
     icon_name: string;
     objective: string;
     duration: string;

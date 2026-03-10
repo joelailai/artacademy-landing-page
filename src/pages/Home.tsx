@@ -148,12 +148,12 @@ const Curriculum = () => {
   const settings = useSiteSettings() as SiteSettings;
   const FALLBACK_CURRICULUMS: HomeCurriculum[] = [
     {
-      id: 1, sort_order: 1, number_label: '01', title_cn: '艺术预科', title_en: 'Corso Propedeutico', icon_name: 'Palette',
+      id: 1, sort_order: 1, number_label: '01', title_cn: '艺术预科 (Corso Propedeutico)', icon_name: 'Palette',
       objective: '零基础或基础薄弱学生，建立完整的西方艺术思维体系与基础技能。', duration: '6-8 个月', methodology: '工坊式教学',
       core_points: ['艺术史与现当代艺术理论', '基础造型与色彩实验', '创意思维与材料探索', '意大利语艺术词汇强化']
     },
     {
-      id: 2, sort_order: 2, number_label: '02', title_cn: '升学辅导', title_en: "Preparazione all'Ammissione", icon_name: 'GraduationCap',
+      id: 2, sort_order: 2, number_label: '02', title_cn: "升学辅导 (Preparazione all'Ammissione)", icon_name: 'GraduationCap',
       objective: '针对目标院校要求，完成高质量作品集创作及入学面试准备。', duration: '3-6 个月', methodology: '1对1导师制',
       core_points: ['个人艺术项目深度开发', '作品集排版与视觉呈现', '教授模拟面试与作品答辩', '院校申请与注册全程指导']
     }
@@ -177,7 +177,7 @@ const Curriculum = () => {
                 <div className="flex items-start justify-between mb-12">
                   <div>
                     <div className="text-5xl font-black text-slate-200 mb-4">{item.number_label}</div>
-                    <h3 className="text-2xl font-bold mb-2">{item.title_cn}<br />{item.title_en}</h3>
+                    <h3 className="text-2xl font-bold mb-2 break-normal">{item.title_cn}</h3>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
                     <Icon size={24} />
