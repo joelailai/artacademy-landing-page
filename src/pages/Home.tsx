@@ -91,7 +91,7 @@ const Campuses = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_campuses_tag || 'Campuses & Gallery'}</div>
+            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_campuses_tag || 'Campus e Galleria'}</div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter" dangerouslySetInnerHTML={{ __html: settings.home_campuses_title || '校区与学生<br />作品展示' }}></h2>
           </div>
         </div>
@@ -107,7 +107,7 @@ const Campuses = () => {
             <div className="absolute bottom-0 left-0 p-8 w-full">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-primary text-xs font-bold tracking-widest mb-2">FLORENCE CAMPUS</div>
+                  <div className="text-primary text-xs font-bold tracking-widest mb-2">CAMPUS DI FIRENZE</div>
                   <h3 className="text-3xl font-bold text-white mb-2">佛罗伦萨主校区</h3>
                   <p className="text-white/70 text-sm max-w-sm">毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。</p>
                 </div>
@@ -128,7 +128,7 @@ const Campuses = () => {
             <div className="absolute bottom-0 left-0 p-8 w-full">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-primary text-xs font-bold tracking-widest mb-2">MILAN CAMPUS</div>
+                  <div className="text-primary text-xs font-bold tracking-widest mb-2">CAMPUS DI MILANO</div>
                   <h3 className="text-3xl font-bold text-white mb-2">米兰校区</h3>
                   <p className="text-white/70 text-sm max-w-sm">位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。</p>
                 </div>
@@ -148,12 +148,12 @@ const Curriculum = () => {
   const settings = useSiteSettings() as SiteSettings;
   const FALLBACK_CURRICULUMS: HomeCurriculum[] = [
     {
-      id: 1, sort_order: 1, number_label: '01', title_cn: '艺术预科', title_en: 'Art Foundation', icon_name: 'Palette',
+      id: 1, sort_order: 1, number_label: '01', title_cn: '艺术预科', title_en: 'Corso Propedeutico', icon_name: 'Palette',
       objective: '零基础或基础薄弱学生，建立完整的西方艺术思维体系与基础技能。', duration: '6-8 个月', methodology: '工坊式教学',
       core_points: ['艺术史与现当代艺术理论', '基础造型与色彩实验', '创意思维与材料探索', '意大利语艺术词汇强化']
     },
     {
-      id: 2, sort_order: 2, number_label: '02', title_cn: '升学辅导', title_en: 'Admission Coaching', icon_name: 'GraduationCap',
+      id: 2, sort_order: 2, number_label: '02', title_cn: '升学辅导', title_en: "Preparazione all'Ammissione", icon_name: 'GraduationCap',
       objective: '针对目标院校要求，完成高质量作品集创作及入学面试准备。', duration: '3-6 个月', methodology: '1对1导师制',
       core_points: ['个人艺术项目深度开发', '作品集排版与视觉呈现', '教授模拟面试与作品答辩', '院校申请与注册全程指导']
     }
@@ -165,7 +165,7 @@ const Curriculum = () => {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_curriculum_tag || 'Curriculum Structure'}</div>
+          <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_curriculum_tag || 'Struttura Didattica'}</div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">{settings.home_curriculum_title || '课程体系重塑'}</h2>
         </div>
 
@@ -186,21 +186,21 @@ const Curriculum = () => {
 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Objective</h4>
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Obiettivo</h4>
                     <p className="text-slate-700 font-medium">{item.objective}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Duration</h4>
+                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Durata</h4>
                       <p className="font-bold">{item.duration}</p>
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Methodology</h4>
+                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Metodologia</h4>
                       <p className="font-bold">{item.methodology}</p>
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Core Curriculum</h4>
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Programma Principale</h4>
                     <ul className="space-y-2">
                       {item.core_points.map((point, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm font-medium">
@@ -237,7 +237,7 @@ const Faculty = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_faculty_tag || 'International Faculty'}</div>
+            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_faculty_tag || 'Docenti Internazionali'}</div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter" dangerouslySetInnerHTML={{ __html: settings.home_faculty_title || '连接中意艺术桥梁<br />国际艺术导师' }}></h2>
           </div>
           <Link to="/faculty" className="flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors">
