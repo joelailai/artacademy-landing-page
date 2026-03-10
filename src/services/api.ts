@@ -104,6 +104,19 @@ export interface ContactFormData {
     message?: string;
 }
 
+export interface HomeCurriculum {
+    id: number;
+    sort_order: number;
+    number_label: string;
+    title_cn: string;
+    title_en: string;
+    icon_name: string;
+    objective: string;
+    duration: string;
+    methodology: string;
+    core_points: string[];
+}
+
 // --------------------------------------------------------
 // 数据读取
 // --------------------------------------------------------
@@ -169,6 +182,18 @@ export async function fetchTestimonials(campusSlug: string): Promise<Testimonial
         .from('testimonials')
         .select('*')
         .eq('campus_slug', campusSlug)
+        .order('sort_order');
+    if (error) throw new Error(error.message);
+    return data || [];
+}
+
+/**
+ * 获取首页课程模块
+ */
+export async function fetchHomeCurriculums(): Promise<HomeCurriculum[]> {
+    const { data, error } = await supabase
+        .from('home_curriculums')
+        .select('*')
         .order('sort_order');
     if (error) throw new Error(error.message);
     return data || [];

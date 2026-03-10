@@ -11,7 +11,13 @@ import {
 } from 'lucide-react';
 import { useSiteSettings } from '../contexts/site-settings-context';
 import { useSupabaseQuery } from '../hooks/use-supabase-query';
-import { fetchFaculty, type SiteSettings, type FacultyMember } from '../services/api';
+import { fetchFaculty, fetchHomeCurriculums, type SiteSettings, type FacultyMember, type HomeCurriculum } from '../services/api';
+
+// Icons mapping for dynamic curricula
+const IconComponents: Record<string, any> = {
+  Palette,
+  GraduationCap
+};
 
 const Hero = () => {
   const settings = useSiteSettings() as SiteSettings;
@@ -28,18 +34,18 @@ const Hero = () => {
 
       <div className="relative z-20 text-center max-w-5xl mx-auto px-6 space-y-8 mt-12">
         <div className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-slate-900 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
-          Rinascimento e Futuro
+          {settings.hero_tag || 'Rinascimento e Futuro'}
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.1] tracking-tighter">
-          在文艺复兴的摇篮<br />
-          <span className="text-primary italic font-serif font-medium tracking-normal">开启你的艺术未来</span>
+          {settings.hero_title_1 || '在文艺复兴的摇篮'}<br />
+          <span className="text-primary italic font-serif font-medium tracking-normal">{settings.hero_title_2 || '开启你的艺术未来'}</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto font-light leading-relaxed">
           {settings.hero_subtitle || '专业意大利艺术留学预科教育，连接佛罗伦萨与世界，为每一位追求纯粹艺术的灵魂开启通往顶尖美院之门。'}
         </p>
         <div className="flex justify-center items-center pt-8">
           <Link to="/courses" className="min-w-[200px] rounded-full bg-primary px-8 py-4 text-sm font-bold text-background-dark hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-            立即了解计划 <ArrowRight size={16} />
+            {settings.hero_cta_text || '立即了解计划'} <ArrowRight size={16} />
           </Link>
         </div>
       </div>
@@ -78,13 +84,15 @@ const Stats = () => {
 };
 
 const Campuses = () => {
+  const settings = useSiteSettings() as SiteSettings;
+
   return (
     <section className="py-24 bg-background-light">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Campuses & Gallery</div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">校区与学生<br />作品展示</h2>
+            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_campuses_tag || 'Campuses & Gallery'}</div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter" dangerouslySetInnerHTML={{ __html: settings.home_campuses_title || '校区与学生<br />作品展示' }}></h2>
           </div>
         </div>
 
@@ -137,92 +145,74 @@ const Campuses = () => {
 };
 
 const Curriculum = () => {
+  const settings = useSiteSettings() as SiteSettings;
+  const FALLBACK_CURRICULUMS: HomeCurriculum[] = [
+    {
+      id: 1, sort_order: 1, number_label: '01', title_cn: '艺术预科', title_en: 'Art Foundation', icon_name: 'Palette',
+      objective: '零基础或基础薄弱学生，建立完整的西方艺术思维体系与基础技能。', duration: '6-8 个月', methodology: '工坊式教学',
+      core_points: ['艺术史与现当代艺术理论', '基础造型与色彩实验', '创意思维与材料探索', '意大利语艺术词汇强化']
+    },
+    {
+      id: 2, sort_order: 2, number_label: '02', title_cn: '升学辅导', title_en: 'Admission Coaching', icon_name: 'GraduationCap',
+      objective: '针对目标院校要求，完成高质量作品集创作及入学面试准备。', duration: '3-6 个月', methodology: '1对1导师制',
+      core_points: ['个人艺术项目深度开发', '作品集排版与视觉呈现', '教授模拟面试与作品答辩', '院校申请与注册全程指导']
+    }
+  ];
+
+  const { data: curriculums } = useSupabaseQuery(fetchHomeCurriculums, FALLBACK_CURRICULUMS);
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Curriculum Structure</div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">课程体系重塑</h2>
+          <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_curriculum_tag || 'Curriculum Structure'}</div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">{settings.home_curriculum_title || '课程体系重塑'}</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-slate-200 rounded-2xl overflow-hidden">
-          {/* 01 Art Foundation */}
-          <div className="p-10 lg:p-14 border-b lg:border-b-0 lg:border-r border-slate-200 bg-slate-50/50 hover:bg-white transition-colors">
-            <div className="flex items-start justify-between mb-12">
-              <div>
-                <div className="text-5xl font-black text-slate-200 mb-4">01</div>
-                <h3 className="text-2xl font-bold mb-2">艺术预科<br />Art Foundation</h3>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                <Palette size={24} />
-              </div>
-            </div>
+          {curriculums.map((item, index) => {
+            const Icon = IconComponents[item.icon_name] || Palette;
+            return (
+              <div key={item.id} className={`p-10 lg:p-14 bg-slate-50/50 hover:bg-white transition-colors ${index % 2 === 0 ? 'border-b lg:border-b-0 lg:border-r border-slate-200' : ''}`}>
+                <div className="flex items-start justify-between mb-12">
+                  <div>
+                    <div className="text-5xl font-black text-slate-200 mb-4">{item.number_label}</div>
+                    <h3 className="text-2xl font-bold mb-2">{item.title_cn}<br />{item.title_en}</h3>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon size={24} />
+                  </div>
+                </div>
 
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Objective</h4>
-                <p className="text-slate-700 font-medium">零基础或基础薄弱学生，建立完整的西方艺术思维体系与基础技能。</p>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Duration</h4>
-                  <p className="font-bold">6-8 个月</p>
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Methodology</h4>
-                  <p className="font-bold">工坊式教学</p>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Core Curriculum</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 艺术史与现当代艺术理论</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 基础造型与色彩实验</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 创意思维与材料探索</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 意大利语艺术词汇强化</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* 02 Admission Coaching */}
-          <div className="p-10 lg:p-14 bg-slate-50/50 hover:bg-white transition-colors">
-            <div className="flex items-start justify-between mb-12">
-              <div>
-                <div className="text-5xl font-black text-slate-200 mb-4">02</div>
-                <h3 className="text-2xl font-bold mb-2">升学辅导<br />Admission Coaching</h3>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                <GraduationCap size={24} />
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Objective</h4>
-                <p className="text-slate-700 font-medium">针对目标院校要求，完成高质量作品集创作及入学面试准备。</p>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Duration</h4>
-                  <p className="font-bold">3-6 个月</p>
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Methodology</h4>
-                  <p className="font-bold">1对1导师制</p>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Objective</h4>
+                    <p className="text-slate-700 font-medium">{item.objective}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Duration</h4>
+                      <p className="font-bold">{item.duration}</p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Methodology</h4>
+                      <p className="font-bold">{item.methodology}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Core Curriculum</h4>
+                    <ul className="space-y-2">
+                      {item.core_points.map((point, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-sm font-medium">
+                          <CheckCircle size={16} className="text-primary shrink-0" /> {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Core Curriculum</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 个人艺术项目深度开发</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 作品集排版与视觉呈现</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 教授模拟面试与作品答辩</li>
-                  <li className="flex items-center gap-2 text-sm font-medium"><CheckCircle size={16} className="text-primary" /> 院校申请与注册全程指导</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -230,6 +220,7 @@ const Curriculum = () => {
 };
 
 const Faculty = () => {
+  const settings = useSiteSettings() as SiteSettings;
   const FALLBACK_FACULTY: FacultyMember[] = [
     { id: 1, name: 'Prof. Alessandro', title: '前佛罗伦萨美院教授 / 雕塑系主任', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBWpMeF83DNVODSolo9AT4t1LA9APKW8yU7TN9AASU9uqrzlnGy2oMY8QsQtw6Rhi2g5aKe1TfDCUKsORUZcuVAGetSgEF59JbQPjSACPPGQt0_SDsj6TdnEGIZBbpwNncGzTUWYrY6p7mUpYOdC2QtuLM3nnRLq9nv2o-TSmBJlVcIIEX_1gbbOtBeDFdcYTBtOkPcqlvNB99vkr9RHOaR_hy6RIW3__eECse0H7cfarfLPf7eBP7jGiOpZO56Bdt6Gy4kQFIgIru9', sort_order: 1 },
     { id: 2, name: 'Dr. Beatrice', title: '米兰理工大学建筑学博士 / 独立设计师', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjgxnWEBdrBYTCanFJ7bbbqe43j3X3i9jXQTqohTCfxPXX9WzK_wu_t3ni0Kw5YQhgs6LikP_akBpx198mxBgkvi3JoWFkocB6mT1mQI-ypYBeu0G_X4WP70_UC3XtE6onGmpuJJJLxfQDqdBM3mmSCfKDwE2cfQiGp1aVqqBiREvlg6albCGEaKAew96_Td5SKNIT1nuGkbD_1qTkDEjzBtFBJ-1DECGBdEUdqDDgFCMFp6ykraPDUSxXUVMDYGKRLjDjAIHO10SC', sort_order: 2 },
@@ -246,11 +237,11 @@ const Faculty = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">International Faculty</div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">连接中意艺术桥梁<br />国际艺术导师</h2>
+            <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.home_faculty_tag || 'International Faculty'}</div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter" dangerouslySetInnerHTML={{ __html: settings.home_faculty_title || '连接中意艺术桥梁<br />国际艺术导师' }}></h2>
           </div>
           <Link to="/faculty" className="flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors">
-            查看全部导师 <ArrowRight size={16} />
+            {settings.home_faculty_cta || '查看全部导师'} <ArrowRight size={16} />
           </Link>
         </div>
 

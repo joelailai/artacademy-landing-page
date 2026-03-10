@@ -44,12 +44,12 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">首页</Link>
-          <Link to="/academies" className="text-sm font-medium hover:text-primary transition-colors">美院专业介绍</Link>
-          <Link to="/courses" className="text-sm font-medium hover:text-primary transition-colors">课程体系</Link>
-          <Link to="/faculty" className="text-sm font-medium hover:text-primary transition-colors">专业师资</Link>
-          <Link to="/cases" className="text-sm font-medium hover:text-primary transition-colors">优秀案例</Link>
-          <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">关于我们</Link>
+          <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_home || '首页'}</Link>
+          <Link to="/academies" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_academies || '美院专业介绍'}</Link>
+          <Link to="/courses" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_courses || '课程体系'}</Link>
+          <Link to="/faculty" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_faculty || '专业师资'}</Link>
+          <Link to="/cases" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_cases || '优秀案例'}</Link>
+          <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">{settings.nav_about || '关于我们'}</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -60,7 +60,7 @@ export default function Header() {
             onClick={() => setIsContactModalOpen(true)}
             className="bg-primary text-background-dark px-6 py-2.5 rounded-full text-sm font-bold hover:bg-white hover:text-background-dark transition-all"
           >
-            立即咨询
+            {settings.nav_cta || '立即咨询'}
           </button>
         </div>
 
@@ -73,12 +73,12 @@ export default function Header() {
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white text-slate-900 shadow-lg py-4 px-6 flex flex-col gap-4">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">首页</Link>
-          <Link to="/academies" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">美院专业介绍</Link>
-          <Link to="/courses" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">课程体系</Link>
-          <Link to="/faculty" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">专业师资</Link>
-          <Link to="/cases" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">优秀案例</Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">关于我们</Link>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_home || '首页'}</Link>
+          <Link to="/academies" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_academies || '美院专业介绍'}</Link>
+          <Link to="/courses" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_courses || '课程体系'}</Link>
+          <Link to="/faculty" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_faculty || '专业师资'}</Link>
+          <Link to="/cases" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_cases || '优秀案例'}</Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">{settings.nav_about || '关于我们'}</Link>
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
@@ -86,7 +86,7 @@ export default function Header() {
             }}
             className="bg-background-dark text-white px-6 py-3 rounded-full text-sm font-medium mt-4"
           >
-            立即咨询
+            {settings.nav_cta || '立即咨询'}
           </button>
         </div>
       )}
