@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS public.academies (
 -- 开启 RLS 保护并设置公开只读权限
 ALTER TABLE public.academies ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Enable read access for all users" ON public.academies;
+
 CREATE POLICY "Enable read access for all users"
     ON public.academies
     FOR SELECT

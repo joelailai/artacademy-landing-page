@@ -20,53 +20,6 @@ export interface AcademyInfo {
 
 export const academiesData: AcademyInfo[] = [
     {
-        id: "2",
-        slug: "firenze",
-        name: "佛罗伦萨美术学院",
-        name_it: "Accademia di Belle Arti di Firenze",
-        established: "1563年",
-        logo: "https://picsum.photos/seed/firenze_logo/200/200",
-        hero_image: "https://picsum.photos/seed/firenze_hero/1920/600",
-        introduction: "文艺复兴时期科西莫一世创办的世界上第一所官方美术学院。米开朗基罗、瓦萨里等巨匠都曾是这里的院士。坐落于举世闻名的艺术之都，该校至今仍是探求西方纯艺术至高境界的朝圣之地，其古典艺术的教学实力在全欧洲首屈一指。",
-        majors: [
-            {
-                id: "fi-1",
-                name: "纯艺术 - 绘画与雕塑 (Pittura e Scultura)",
-                level: "Both",
-                description: "极其注重人体造型、解剖学与传统媒材训练的学院核心力量。",
-                thumbnail: "https://picsum.photos/seed/fi_art/400/300"
-            },
-            {
-                id: "fi-2",
-                name: "室内设计 (Design - Interior)",
-                level: "Undergraduate",
-                description: "融合了意大利托斯卡纳传统与当代极简的室内空间与家具设计方向。",
-                thumbnail: "https://picsum.photos/seed/fi_interior/400/300"
-            },
-            {
-                id: "fi-3",
-                name: "展陈设计 (Exhibit Design)",
-                level: "Graduate",
-                description: "专门针对博物馆展开展策展与空间布展设计的深度研究。",
-                thumbnail: "https://picsum.photos/seed/fi_exhibit/400/300"
-            },
-            {
-                id: "fi-4",
-                name: "博物馆教育与传播 (Didattica per i Musei)",
-                level: "Undergraduate",
-                description: "利用佛罗伦萨丰富的博物馆资源，培养艺术导览、教育及文化传播专家。",
-                thumbnail: "https://picsum.photos/seed/fi_didattica/400/300"
-            },
-            {
-                id: "fi-5",
-                name: "插画 (Illustrazione)",
-                level: "Graduate",
-                description: "研究绘本、视听文学传播与出版相关的视觉语言和图形表达。",
-                thumbnail: "https://picsum.photos/seed/fi_illustration/400/300"
-            }
-        ]
-    },
-    {
         id: "1",
         slug: "brera",
         name: "米兰布雷拉美术学院",
@@ -117,6 +70,53 @@ export const academiesData: AcademyInfo[] = [
                 level: "Graduate",
                 description: "两年制硕士专业，聚焦于高端成衣与先锋时尚设计的概念开发与制作。",
                 thumbnail: "https://picsum.photos/seed/br_fashion/400/300"
+            }
+        ]
+    },
+    {
+        id: "2",
+        slug: "firenze",
+        name: "佛罗伦萨美术学院",
+        name_it: "Accademia di Belle Arti di Firenze",
+        established: "1563年",
+        logo: "https://picsum.photos/seed/firenze_logo/200/200",
+        hero_image: "https://picsum.photos/seed/firenze_hero/1920/600",
+        introduction: "文艺复兴时期科西莫一世创办的世界上第一所官方美术学院。米开朗基罗、瓦萨里等巨匠都曾是这里的院士。坐落于举世闻名的艺术之都，该校至今仍是探求西方纯艺术至高境界的朝圣之地，其古典艺术的教学实力在全欧洲首屈一指。",
+        majors: [
+            {
+                id: "fi-1",
+                name: "纯艺术 - 绘画与雕塑 (Pittura e Scultura)",
+                level: "Both",
+                description: "极其注重人体造型、解剖学与传统媒材训练的学院核心力量。",
+                thumbnail: "https://picsum.photos/seed/fi_art/400/300"
+            },
+            {
+                id: "fi-2",
+                name: "室内设计 (Design - Interior)",
+                level: "Undergraduate",
+                description: "融合了意大利托斯卡纳传统与当代极简的室内空间与家具设计方向。",
+                thumbnail: "https://picsum.photos/seed/fi_interior/400/300"
+            },
+            {
+                id: "fi-3",
+                name: "展陈设计 (Exhibit Design)",
+                level: "Graduate",
+                description: "专门针对博物馆展开展策展与空间布展设计的深度研究。",
+                thumbnail: "https://picsum.photos/seed/fi_exhibit/400/300"
+            },
+            {
+                id: "fi-4",
+                name: "博物馆教育与传播 (Didattica per i Musei)",
+                level: "Undergraduate",
+                description: "利用佛罗伦萨丰富的博物馆资源，培养艺术导览、教育及文化传播专家。",
+                thumbnail: "https://picsum.photos/seed/fi_didattica/400/300"
+            },
+            {
+                id: "fi-5",
+                name: "插画 (Illustrazione)",
+                level: "Graduate",
+                description: "研究绘本、视听文学传播与出版相关的视觉语言和图形表达。",
+                thumbnail: "https://picsum.photos/seed/fi_illustration/400/300"
             }
         ]
     },
