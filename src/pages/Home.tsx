@@ -28,7 +28,7 @@ const Hero = () => {
 
       <div className="relative z-20 text-center max-w-5xl mx-auto px-6 space-y-8 mt-12">
         <div className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-slate-900 text-xs font-bold tracking-[0.2em] uppercase mb-4 backdrop-blur-sm">
-          Renaissance & Future
+          Rinascimento e Futuro
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.1] tracking-tighter">
           在文艺复兴的摇篮<br />
