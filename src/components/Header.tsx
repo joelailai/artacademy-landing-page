@@ -45,7 +45,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">首页</Link>
-          <Link to="/academies" className="text-sm font-medium hover:text-primary transition-colors text-primary">美院专业介绍</Link>
+          <Link to="/academies" className="text-sm font-medium hover:text-primary transition-colors">美院专业介绍</Link>
           <Link to="/courses" className="text-sm font-medium hover:text-primary transition-colors">课程体系</Link>
           <Link to="/faculty" className="text-sm font-medium hover:text-primary transition-colors">专业师资</Link>
           <Link to="/cases" className="text-sm font-medium hover:text-primary transition-colors">优秀案例</Link>
@@ -74,7 +74,7 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white text-slate-900 shadow-lg py-4 px-6 flex flex-col gap-4">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">首页</Link>
-          <Link to="/academies" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100 text-primary">美院专业介绍</Link>
+          <Link to="/academies" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">美院专业介绍</Link>
           <Link to="/courses" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">课程体系</Link>
           <Link to="/faculty" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">专业师资</Link>
           <Link to="/cases" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-medium py-2 border-b border-slate-100">优秀案例</Link>

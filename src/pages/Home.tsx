@@ -86,16 +86,6 @@ const Campuses = () => {
             <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">Campuses & Gallery</div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">校区与学生<br />作品展示</h2>
           </div>
-          <div className="flex gap-8 text-sm font-medium">
-            <div className="flex flex-col">
-              <span className="text-3xl font-black">150+</span>
-              <span className="text-slate-500">国际艺术奖项</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-3xl font-black">2.4k</span>
-              <span className="text-slate-500">历届优秀学员</span>
-            </div>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
