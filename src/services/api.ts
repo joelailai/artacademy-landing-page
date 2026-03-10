@@ -178,6 +178,39 @@ export async function fetchTestimonials(campusSlug: string): Promise<Testimonial
 // 数据写入
 // --------------------------------------------------------
 
+export interface AcademyMajor {
+    id: string;
+    name: string;
+    level: 'Undergraduate' | 'Graduate' | 'Both';
+    description: string;
+    thumbnail: string;
+}
+
+export interface AcademyInfo {
+    id: string;
+    slug: string;
+    name: string;
+    name_it: string;
+    established: string;
+    logo: string;
+    hero_image: string;
+    introduction: string;
+    majors: AcademyMajor[];
+}
+
+/**
+ * 获取所有美院专业介绍数据
+ */
+export async function fetchAcademies(): Promise<AcademyInfo[]> {
+    const { data, error } = await supabase
+        .from('academies')
+        .select('*')
+        .order('sort_order', { ascending: true });
+
+    if (error) throw new Error(error.message);
+    return data || [];
+}
+
 /**
  * 提交联系/预约咨询表单
  * @param formData 表单数据
