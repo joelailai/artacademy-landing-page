@@ -12,8 +12,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              {settings.logo_url ? (
-                <img src={settings.logo_url} alt="Logo" className="h-10" />
+              {settings.logo_footer_url ? (
+                <img src={settings.logo_footer_url} alt="Logo" className="h-10" />
               ) : (
                 <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
                   <span className="font-black text-background-dark text-xl">A</span>

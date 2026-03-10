@@ -23,7 +23,8 @@ const DEFAULT_SETTINGS: SiteSettings = {
     stat_years: '5+',
     qr_wechat: '',
     qr_gongzhonghao: '',
-    logo_url: '',
+    logo_header_url: '',
+    logo_footer_url: '',
 };
 
 const SiteSettingsContext = createContext<SiteSettings>(DEFAULT_SETTINGS);

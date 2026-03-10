@@ -29,8 +29,8 @@ export default function Header() {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled ? 'shadow-sm py-4' : 'py-6'} ${headerBg}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          {settings.logo_url ? (
-            <img src={settings.logo_url} alt="Logo" className="h-10" />
+          {settings.logo_header_url ? (
+            <img src={settings.logo_header_url} alt="Logo" className="h-10" />
           ) : (
             <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center shrink-0">
               <span className="font-black text-background-dark text-xl">A</span>
