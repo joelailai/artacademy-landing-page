@@ -32,7 +32,7 @@ export default function CourseFoundation() {
 
         {/* Hero Section */}
         <section className="mb-20">
-          <div className="grid md:grid-cols-2 gap-12 items-end">
+          <div className="flex flex-col items-start">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">Foundation Programs</span>
               <h2 className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6">
@@ -41,22 +41,6 @@ export default function CourseFoundation() {
               <p className="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
                 现代、极简的艺术留学进修方案。我们为志在顶尖美院的学生提供系统化的作品集指导与艺术史论支撑。
               </p>
-            </div>
-            <div className="flex justify-end gap-4 border-l border-slate-200 dark:border-slate-800 pl-8">
-              <div className="text-center">
-                <span className="block text-3xl font-black">98%</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest">录取率</span>
-              </div>
-              <div className="w-px h-12 bg-slate-200 dark:bg-slate-800"></div>
-              <div className="text-center">
-                <span className="block text-3xl font-black">15+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest">合作美院</span>
-              </div>
-              <div className="w-px h-12 bg-slate-200 dark:bg-slate-800"></div>
-              <div className="text-center">
-                <span className="block text-3xl font-black">2000+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest">成功案例</span>
-              </div>
             </div>
           </div>
         </section>
