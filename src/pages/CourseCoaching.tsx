@@ -18,7 +18,7 @@ export default function CourseCoaching() {
           <div className="col-span-12 lg:col-span-8 flex flex-col justify-end min-h-[400px]">
             <span className="text-primary font-bold tracking-widest uppercase mb-4 block">ITALIAN FINE ARTS ACADEMY</span>
             <h2 className="text-6xl md:text-8xl font-black leading-none tracking-tighter mb-8">
-              转学 / 升学 / <br/>
+              转学 / 升学 / <br />
               <span className="text-primary">毕业辅导</span>
             </h2>
             <p className="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -26,7 +26,7 @@ export default function CourseCoaching() {
             </p>
           </div>
           <div className="col-span-12 lg:col-span-4 mt-8 lg:mt-0">
-            <div className="bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden aspect-[3/4] relative group" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDj4iAsweewE51ytwfJ_b7bS3v95S1GrOqg3qlESlwu4syHO-txU4fnV0144lu31ZPeMZ-seJFXr8uMr1QEWiTm43m5SwhcuZC45a8ye9vlIqEd7XuAHuotuZlk4aAs0fJ0GwzynDksILpQpYPfzxevXYyu6MvoS_hffkN96Tzi5du4aJ3GJ68FUdTo192mX2w_JF-Z5SYSeTUczxPuDQzxZcnTMqEQ5ByIK3GPhsHjB77Njuf630J8mWScMTox5WNy2IYdAZafhoq9')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden aspect-[3/4] relative group" style={{ backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="bg-white text-black px-6 py-2 rounded-full font-bold">了解更多</span>
               </div>
@@ -51,7 +51,7 @@ export default function CourseCoaching() {
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 锁定1所目标美院</li>
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 1场全仿真模拟面试</li>
               </ul>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="mt-8 w-full py-3 rounded-lg border border-slate-900 dark:border-slate-100 font-bold hover:bg-slate-900 hover:text-white dark:hover:bg-slate-100 dark:hover:text-black transition-all"
               >
@@ -69,7 +69,7 @@ export default function CourseCoaching() {
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 2场全仿真模拟面试</li>
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 包含排版与画册制作指导</li>
               </ul>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="mt-8 w-full py-3 rounded-lg border border-slate-900 dark:border-slate-100 font-bold hover:bg-slate-900 hover:text-white dark:hover:bg-slate-100 dark:hover:text-black transition-all"
               >
@@ -87,7 +87,7 @@ export default function CourseCoaching() {
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 2场高强度模拟面试</li>
                 <li className="flex items-center gap-2"><CheckCircle className="text-primary w-4 h-4" /> 文案润色 / 外教语言指导</li>
               </ul>
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="mt-8 w-full py-3 rounded-lg border border-slate-900 dark:border-slate-100 font-bold hover:bg-slate-900 hover:text-white dark:hover:bg-slate-100 dark:hover:text-black transition-all"
               >
@@ -126,11 +126,11 @@ export default function CourseCoaching() {
         <section className="rounded-2xl bg-slate-900 text-white p-12 overflow-hidden relative">
           <div className="relative z-10 grid grid-cols-12 gap-6 items-center">
             <div className="col-span-12 lg:col-span-7">
-              <h4 className="text-3xl md:text-5xl font-black tracking-tighter mb-4">准备好开启你的<br/><span className="text-primary italic">艺术进阶</span>之旅了吗？</h4>
+              <h4 className="text-3xl md:text-5xl font-black tracking-tighter mb-4">准备好开启你的<br /><span className="text-primary italic">艺术进阶</span>之旅了吗？</h4>
               <p className="text-slate-400 max-w-md">加入我们，与来自布雷拉、都灵、博洛尼亚等顶尖美院的导师一起，重塑你的艺术语言。</p>
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col justify-center mt-8 lg:mt-0">
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-primary text-black font-black py-4 px-8 rounded-lg uppercase tracking-widest hover:brightness-110 transition-all w-full md:w-auto"
               >
