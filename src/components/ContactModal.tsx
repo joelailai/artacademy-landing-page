@@ -45,20 +45,20 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   const modalContent = (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl w-full max-w-4xl relative shadow-2xl border border-slate-200 dark:border-slate-800 animate-in fade-in zoom-in duration-200 my-8">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl md:rounded-3xl w-full max-w-4xl max-h-full relative shadow-2xl border border-slate-200 dark:border-slate-800 animate-in fade-in zoom-in duration-200 flex flex-col overflow-hidden">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-20 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors bg-white/80 dark:bg-slate-900/80 backdrop-blur-md"
         >
           <X size={20} className="text-slate-500" />
         </button>
 
-        <div className="flex flex-col md:flex-row h-full">
+        <div className="flex flex-col md:flex-row h-full overflow-y-auto flex-1 pb-safe">
           {/* Form Section */}
-          <div className="flex-1 p-8 md:p-12 relative overflow-hidden">
-            <h3 className="text-3xl font-black mb-2">预约咨询</h3>
-            <p className="text-slate-500 text-sm mb-8">填写以下信息，我们的专业艺术顾问将会在 24 小时内与您联系，为您定制专属作品集方案。</p>
+          <div className="flex-1 p-6 sm:p-8 md:p-12 relative">
+            <h3 className="text-2xl md:text-3xl font-black mb-2 pr-8">预约咨询</h3>
+            <p className="text-slate-500 text-sm mb-6 md:mb-8">填写以下信息，我们的专业艺术顾问将会在 24 小时内与您联系，为您定制专属作品集方案。</p>
 
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center text-center h-64 bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6">
@@ -73,7 +73,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">姓名 *</label>
                   <input
@@ -105,7 +105,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
+                    rows={3}
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm resize-none"
                     placeholder="请简要描述您的目标院校或专业意向"
                   />
@@ -116,7 +116,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-background-dark py-4 rounded-xl font-bold hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 bg-primary text-background-dark py-3.5 md:py-4 rounded-xl font-bold hover:bg-primary/90 hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed mt-2"
                 >
                   {isSubmitting ? '提交中...' : '提交预约'}
                   {!isSubmitting && <Send size={18} />}
@@ -126,10 +126,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
 
           {/* Info Section */}
-          <div className="w-full md:w-[320px] bg-slate-50 dark:bg-slate-800/50 p-8 md:p-12 border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-800 flex flex-col">
+          <div className="w-full md:w-[320px] bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8 md:p-12 border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-800 flex flex-col xl:shrink-0">
             <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">直接联系我们</h4>
 
-            <div className="space-y-6 flex-1">
+            <div className="space-y-5 md:space-y-6 flex-1">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 text-primary flex items-center justify-center shrink-0 shadow-sm">
                   <Phone size={18} />
@@ -161,9 +161,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               </div>
             </div>
 
-            <div className="pt-8 mt-8 border-t border-slate-200 dark:border-slate-700 flex justify-center">
+            <div className="pt-6 mt-6 md:pt-8 md:mt-8 border-t border-slate-200 dark:border-slate-700 flex justify-center">
               <div className="flex flex-col items-center gap-3">
-                <div className="w-32 h-32 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden p-2">
+                <div className="w-24 h-24 md:w-32 md:h-32 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden p-2">
                   {settings.qr_wechat ? (
                     <img src={settings.qr_wechat} alt="WeChat QR Code" className="w-full h-full object-cover rounded" />
                   ) : (
