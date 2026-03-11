@@ -50,7 +50,11 @@ interface SiteSettingsProviderProps {
  * 网站配置 Provider，包裹在 App 最外层
  */
 export function SiteSettingsProvider({ children }: SiteSettingsProviderProps) {
-    const { data: settings } = useSupabaseQuery(fetchSiteSettings, DEFAULT_SETTINGS);
+    const { data: settings, isLoading } = useSupabaseQuery(fetchSiteSettings, DEFAULT_SETTINGS);
+
+    if (isLoading) {
+        return <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300"></div>;
+    }
 
     return (
         <SiteSettingsContext.Provider value={settings}>

@@ -34,7 +34,7 @@ export default function Courses() {
                 了解详情
               </Link>
             </div>
-            <div className="flex-1 w-full h-[400px] rounded-2xl bg-slate-200 bg-cover bg-center"></div>
+            <div className="flex-1 w-full h-[400px] rounded-2xl bg-slate-100 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX2o-3Zwknhnc3FI0d_ODRa2ZIYBx3Xao1MRakoBthiEGxcmqWzko7lNm_9ZivJ_Y6K11gREKYqWysm-52RRxDrNMO3ALel2uOrOeumeMQV4wIg2hF-dN7y08xHSv6JnimLa028Gp0e9KwFliD6VZzeCJx8NpOQ5ggHmEYf_ZDJwBVI_1lwBFOj29L_OBwwzF9CCZJkjPD4ig-oDmYXWyoTJYhuUEPuMKFrZz0O0VYIlNlVXInfYuK5ycMXRfkiXBxdSHG9ZqxSvCp')` }}></div>
           </div>
 
           {/* Course 2 */}
@@ -56,7 +56,7 @@ export default function Courses() {
                 了解详情
               </Link>
             </div>
-            <div className="flex-1 w-full h-[400px] rounded-2xl bg-slate-200 bg-cover bg-center"></div>
+            <div className="flex-1 w-full h-[400px] rounded-2xl bg-slate-100 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcrlHoaQVhuR1sZUrMNYRzToTbwxbMts1qxtma1i_g9q85WNXgSZdDvvMeU7dY1_Iew52-wB_xXCmPH_FI5F5fskSPuTUq7ccHFOoa73SkMz68fU2c3y7pt0nKyjiN92YqOJcs1FhcfXEsPUf-48gyBH4g9GF0iQZqdNHhlKaObZkMuLpo6DXF23JcPCMO1N8qlHfnFlVFTnJT05M3y0K7NEjDrmu2d7mS0LWmNRMwN2Zm-IUzW6p5f0EEBrmevas2E8-DbmMO7MA4')` }}></div>
           </div>
         </div>
       </div>

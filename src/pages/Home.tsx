@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background-light/40 via-background-light/80 to-background-light z-10"></div>
         <div
           className="w-full h-full bg-cover bg-center transition-transform duration-[20s] scale-110"
-          style={{ backgroundImage: settings.hero_bg_url ? `url('${settings.hero_bg_url}')` : 'none' }}
+          style={{ backgroundImage: settings.hero_bg_url ? `url('${settings.hero_bg_url}')` : `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX2o-3Zwknhnc3FI0d_ODRa2ZIYBx3Xao1MRakoBthiEGxcmqWzko7lNm_9ZivJ_Y6K11gREKYqWysm-52RRxDrNMO3ALel2uOrOeumeMQV4wIg2hF-dN7y08xHSv6JnimLa028Gp0e9KwFliD6VZzeCJx8NpOQ5ggHmEYf_ZDJwBVI_1lwBFOj29L_OBwwzF9CCZJkjPD4ig-oDmYXWyoTJYhuUEPuMKFrZz0O0VYIlNlVXInfYuK5ycMXRfkiXBxdSHG9ZqxSvCp')` }}
         ></div>
       </div>
 
@@ -101,7 +101,7 @@ const Campuses = () => {
           <Link to="/campus/florence" className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer block">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: settings.home_campus_florence_img ? `url('${settings.home_campus_florence_img}')` : 'none' }}
+              style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcrlHoaQVhuR1sZUrMNYRzToTbwxbMts1qxtma1i_g9q85WNXgSZdDvvMeU7dY1_Iew52-wB_xXCmPH_FI5F5fskSPuTUq7ccHFOoa73SkMz68fU2c3y7pt0nKyjiN92YqOJcs1FhcfXEsPUf-48gyBH4g9GF0iQZqdNHhlKaObZkMuLpo6DXF23JcPCMO1N8qlHfnFlVFTnJT05M3y0K7NEjDrmu2d7mS0LWmNRMwN2Zm-IUzW6p5f0EEBrmevas2E8-DbmMO7MA4')` }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -122,7 +122,7 @@ const Campuses = () => {
           <Link to="/campus/milan" className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer block">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: settings.home_campus_milan_img ? `url('${settings.home_campus_milan_img}')` : 'none' }}
+              style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVdoCq9YPv0NsUGrE10tY3GmgtphYVSr_pc2mA4oBECUTkqekNAuvbciEsgEwC2JXifkV83iZmSp1n6QwlASayhM-e8MRj_lCidVQV0NRruSAzsjGGeMTl9NSWjfW07o3G0UcDeLvxQNqPmMHjDx9bwPlGal7TmDmf-rM5Rx3nj_cedFTTc8ww8_F-lUcVgSV0g9G99B8K1uhGvjfsiNDyxcRS8Hy83M3l7x36n4fZFWwSTK2HK5RaIlsAgJW8q2HWIjY52w4GLZOA')` }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -222,9 +222,9 @@ const Curriculum = () => {
 const Faculty = () => {
   const settings = useSiteSettings() as SiteSettings;
   const FALLBACK_FACULTY: FacultyMember[] = [
-    { id: 1, name: 'Prof. Alessandro', title: '前佛罗伦萨美院教授 / 雕塑系主任', description: null, image_url: '', sort_order: 1 },
-    { id: 2, name: 'Dr. Beatrice', title: '米兰理工大学建筑学博士 / 独立设计师', description: null, image_url: '', sort_order: 2 },
-    { id: 3, name: 'Giulia M.', title: '马兰欧尼时装学院资深导师 / 品牌主理人', description: null, image_url: '', sort_order: 3 }
+    { id: 1, name: 'Prof. Alessandro', title: '前佛罗伦萨美院教授 / 雕塑系主任', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBWpMeF83DNVODSolo9AT4t1LA9APKW8yU7TN9AASU9uqrzlnGy2oMY8QsQtw6Rhi2g5aKe1TfDCUKsORUZcuVAGetSgEF59JbQPjSACPPGQt0_SDsj6TdnEGIZBbpwNncGzTUWYrY6p7mUpYOdC2QtuLM3nnRLq9nv2o-TSmBJlVcIIEX_1gbbOtBeDFdcYTBtOkPcqlvNB99vkr9RHOaR_hy6RIW3__eECse0H7cfarfLPf7eBP7jGiOpZO56Bdt6Gy4kQFIgIru9', sort_order: 1 },
+    { id: 2, name: 'Dr. Beatrice', title: '米兰理工大学建筑学博士 / 独立设计师', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjgxnWEBdrBYTCanFJ7bbbqe43j3X3i9jXQTqohTCfxPXX9WzK_wu_t3ni0Kw5YQhgs6LikP_akBpx198mxBgkvi3JoWFkocB6mT1mQI-ypYBeu0G_X4WP70_UC3XtE6onGmpuJJJLxfQDqdBM3mmSCfKDwE2cfQiGp1aVqqBiREvlg6albCGEaKAew96_Td5SKNIT1nuGkbD_1qTkDEjzBtFBJ-1DECGBdEUdqDDgFCMFp6ykraPDUSxXUVMDYGKRLjDjAIHO10SC', sort_order: 2 },
+    { id: 3, name: 'Giulia M.', title: '马兰欧尼时装学院资深导师 / 品牌主理人', description: null, image_url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBO_cePkZLJ38MgRYiLQqtsnDkSCCdWGg2iIWpSBjCGz1O5ygFTjKh1El9M5suvNuwHCQOTZ_p4id7qxp-qxFFQcK20-iwGQ9ZHi_jrLFhkE4YgGCN8kkiHxjq4l29-SDA85I3zKkJPFSuKBojMpnWv3u94GzkPITxX2YNspXbNE8TjV7UZ2_DOvdG2WDqQx_V0K4WS_mAhmnc8-61t9ybnAxi_oXYxZXx7knknaGDZ1JufnyQz8T4hCrhlnyhyCUB8PEsZ3y9w8sxs', sort_order: 3 }
   ];
 
   const { data: facultyResponse } = useSupabaseQuery(fetchFaculty, FALLBACK_FACULTY);
