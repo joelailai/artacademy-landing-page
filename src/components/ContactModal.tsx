@@ -164,9 +164,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <div className="pt-8 mt-8 border-t border-slate-200 dark:border-slate-700 flex justify-center">
               <div className="flex flex-col items-center gap-3">
                 <div className="w-32 h-32 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden p-2">
-                  <div className="w-full h-full bg-slate-100 flex items-center justify-center rounded">
-                    <span className="text-slate-400 text-xs text-center px-4">QR Code</span>
-                  </div>
+                  {settings.qr_wechat ? (
+                    <img src={settings.qr_wechat} alt="WeChat QR Code" className="w-full h-full object-cover rounded" />
+                  ) : (
+                    <div className="w-full h-full bg-slate-100 flex items-center justify-center rounded">
+                      <span className="text-slate-400 text-xs text-center px-4">QR Code</span>
+                    </div>
+                  )}
                 </div>
                 <span className="text-xs text-slate-500 font-medium">扫码添加客服微信</span>
               </div>
