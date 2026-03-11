@@ -16,7 +16,7 @@ const FALLBACK_CASES: CaseItem[] = [
 ];
 
 export default function Cases() {
-  const { data: cases } = useSupabaseQuery(fetchCases, FALLBACK_CASES);
+  const { data: cases, isLoading } = useSupabaseQuery(fetchCases, FALLBACK_CASES);
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background-light">
@@ -41,8 +41,8 @@ export default function Cases() {
             >
               <div className="relative h-[300px] overflow-hidden">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${item.image_url}')` }}
+                  className={`absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                  style={{ backgroundImage: isLoading ? 'none' : `url('${item.image_url}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">

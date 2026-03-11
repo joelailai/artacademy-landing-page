@@ -22,7 +22,7 @@ const FALLBACK_FACULTY: FacultyMember[] = [
 ];
 
 export default function Faculty() {
-  const { data: faculty } = useSupabaseQuery(fetchFaculty, FALLBACK_FACULTY);
+  const { data: faculty, isLoading } = useSupabaseQuery(fetchFaculty, FALLBACK_FACULTY);
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background-dark text-white">
@@ -40,8 +40,8 @@ export default function Faculty() {
             <div key={member.id} className="group flex flex-col sm:flex-row gap-8 items-center bg-white/5 p-6 rounded-3xl hover:bg-white/10 transition-colors border border-white/10">
               <div className="w-48 h-48 shrink-0 rounded-2xl overflow-hidden relative">
                 <div
-                  className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${member.image_url}')` }}
+                  className={`absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                  style={{ backgroundImage: isLoading ? 'none' : `url('${member.image_url}')` }}
                 ></div>
               </div>
               <div className="flex-1 text-center sm:text-left">

@@ -55,8 +55,8 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
 ];
 
 export default function CampusFlorence() {
-  const { data: campus } = useSupabaseQuery(() => fetchCampus('florence'), FALLBACK_CAMPUS);
-  const { data: testimonials } = useSupabaseQuery(() => fetchTestimonials('florence'), FALLBACK_TESTIMONIALS);
+  const { data: campus, isLoading: isLoadingCampus } = useSupabaseQuery(() => fetchCampus('florence'), FALLBACK_CAMPUS);
+  const { data: testimonials, isLoading: isLoadingTestimonials } = useSupabaseQuery(() => fetchTestimonials('florence'), FALLBACK_TESTIMONIALS);
 
   // NOTE: campus 可能为 null（Supabase 查询失败时），此时使用 fallback
   const campusData = campus || FALLBACK_CAMPUS;
@@ -85,7 +85,7 @@ export default function CampusFlorence() {
           <h2 className="text-3xl font-bold mb-8">场地环境</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {campusData.gallery_images.map((img, i) => (
-              <div key={i} className="h-64 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `url('${img}')` }}></div>
+              <div key={i} className={`h-64 rounded-2xl bg-cover bg-center transition-opacity duration-300 ${isLoadingCampus ? 'opacity-0' : 'opacity-100'}`} style={{ backgroundImage: isLoadingCampus ? 'none' : `url('${img}')` }}></div>
             ))}
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function CampusFlorence() {
                 key={i}
                 className="shrink-0 w-72 md:w-80 aspect-[1/1.414] rounded-xl bg-slate-100 overflow-hidden shadow-sm snap-start"
               >
-                <img src={img} alt={`录取成果 ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={isLoadingCampus ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' : img} alt={`录取成果 ${i + 1}`} className={`w-full h-full object-cover transition-opacity duration-300 ${isLoadingCampus ? 'opacity-0' : 'opacity-100'}`} />
               </div>
             ))}
           </div>
@@ -112,8 +112,8 @@ export default function CampusFlorence() {
             {campusData.activities?.slice(0, 4).map((activity, i) => (
               <div key={i} className="flex flex-col gap-4">
                 <div
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center bg-slate-100 overflow-hidden shadow-sm"
-                  style={{ backgroundImage: `url('${activity.image_url}')` }}
+                  className={`aspect-[4/3] rounded-2xl bg-cover bg-center bg-slate-100 overflow-hidden shadow-sm transition-opacity duration-300 ${isLoadingCampus ? 'opacity-0' : 'opacity-100'}`}
+                  style={{ backgroundImage: isLoadingCampus ? 'none' : `url('${activity.image_url}')` }}
                 ></div>
                 <p className="text-slate-600 font-medium px-2">{activity.description}</p>
               </div>
@@ -130,7 +130,7 @@ export default function CampusFlorence() {
                 <Quote className="text-primary/20 mb-4" size={32} />
                 <p className="text-slate-600 leading-relaxed mb-6">{item.content}</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-cover bg-center" style={{ backgroundImage: `url('${item.avatar_url}')` }}></div>
+                  <div className={`w-10 h-10 rounded-full bg-cover bg-center transition-opacity duration-300 ${isLoadingTestimonials ? 'opacity-0' : 'opacity-100'}`} style={{ backgroundImage: isLoadingTestimonials ? 'none' : `url('${item.avatar_url}')` }}></div>
                   <div>
                     <p className="font-bold text-sm">{item.student_name}</p>
                     <p className="text-xs text-primary">{item.admission_info}</p>
