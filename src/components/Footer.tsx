@@ -38,7 +38,6 @@ export default function Footer() {
             <h4 className="font-bold mb-6 tracking-widest text-sm">快速链接</h4>
             <ul className="space-y-4 text-sm text-white/60">
               <li><Link to="/about" className="hover:text-primary transition-colors">关于我们</Link></li>
-              <li><Link to="/academies" className="hover:text-primary transition-colors text-primary">美院专业介绍</Link></li>
               <li><Link to="/courses" className="hover:text-primary transition-colors">课程体系</Link></li>
               <li><Link to="/faculty" className="hover:text-primary transition-colors">师资团队</Link></li>
               <li><Link to="/cases" className="hover:text-primary transition-colors">优秀案例</Link></li>

@@ -21,7 +21,6 @@ import About from './pages/About';
 import Cases from './pages/Cases';
 import CampusFlorence from './pages/CampusFlorence';
 import CampusMilan from './pages/CampusMilan';
-import Academies from './pages/Academies';
 import { SiteSettingsProvider } from './contexts/site-settings-context';
 
 export default function App() {
@@ -40,7 +39,6 @@ export default function App() {
             <Route path="/cases" element={<Cases />} />
             <Route path="/campus/florence" element={<CampusFlorence />} />
             <Route path="/campus/milan" element={<CampusMilan />} />
-            <Route path="/academies" element={<Academies />} />
           </Routes>
         </main>
         <Footer />
