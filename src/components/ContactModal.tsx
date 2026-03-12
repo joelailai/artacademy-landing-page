@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Phone, Mail, MessageCircle, Send, CheckCircle } from 'lucide-react';
+import { X, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { submitContact } from '../services/api';
 import { useSiteSettings } from '../contexts/site-settings-context';
 import type { SiteSettings } from '../services/api';
@@ -150,15 +150,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 text-primary flex items-center justify-center shrink-0 shadow-sm">
-                  <MessageCircle size={18} />
-                </div>
-                <div>
-                  <div className="text-xs text-slate-500 font-bold mb-1 uppercase tracking-wider">微信号</div>
-                  <div className="font-medium text-sm">{settings.contact_wechat}</div>
-                </div>
-              </div>
+
             </div>
 
             <div className="pt-6 mt-6 md:pt-8 md:mt-8 border-t border-slate-200 dark:border-slate-700 flex justify-center">
@@ -172,7 +164,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     </div>
                   )}
                 </div>
-                <span className="text-xs text-slate-500 font-medium">扫码添加客服微信</span>
+                <span className="text-xs text-slate-500 font-medium">联系我们</span>
               </div>
             </div>
           </div>

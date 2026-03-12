@@ -218,7 +218,7 @@ const Curriculum = () => {
                       to={detailLink}
                       className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-background-dark hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all"
                     >
-                      Programma Principale <ArrowRight size={16} />
+                      课程详细介绍 <ArrowRight size={16} />
                     </Link>
                   </div>
                 </div>

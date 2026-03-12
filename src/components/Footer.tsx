@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteSettings } from '../contexts/site-settings-context';
 import type { SiteSettings } from '../services/api';
@@ -51,7 +51,7 @@ export default function Footer() {
               <ul className="space-y-4 text-sm text-white/60">
                 <li className="flex items-start gap-3">
                   <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
-                  <span>佛罗伦萨：{settings.address_florence}<br />米兰：{settings.address_milan}</span>
+                  <span>佛罗伦萨：{settings.address_florence}<br /><br />米兰：{settings.address_milan}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={18} className="text-primary shrink-0" />
@@ -61,10 +61,7 @@ export default function Footer() {
                   <Mail size={18} className="text-primary shrink-0" />
                   <span>{settings.contact_email}</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <MessageCircle size={18} className="text-primary shrink-0" />
-                  <span>微信号：{settings.contact_wechat}</span>
-                </li>
+
               </ul>
             </div>
 
@@ -80,14 +77,14 @@ export default function Footer() {
                 <span className="text-xs text-white/50">关注公众号</span>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20 overflow-hidden">
+                <div className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center border border-white/20 overflow-hidden p-2">
                   {settings.qr_wechat ? (
-                    <img src={settings.qr_wechat} alt="客服微信二维码" className="w-full h-full object-cover" />
+                    <img src={settings.qr_wechat} alt="联系我们二维码" className="w-full h-full object-cover rounded" />
                   ) : (
-                    <span className="text-white/30 text-xs text-center px-2">客服微信<br />二维码</span>
+                    <span className="text-white/30 text-xs text-center px-2">联系我们<br />二维码</span>
                   )}
                 </div>
-                <span className="text-xs text-white/50">添加客服微信</span>
+                <span className="text-xs text-white/50">联系我们</span>
               </div>
             </div>
           </div>
