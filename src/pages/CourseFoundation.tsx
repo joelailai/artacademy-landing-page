@@ -3,7 +3,8 @@ import { Clock, Users, User, Calendar, ShieldCheck, Star, ArrowLeft } from 'luci
 import { Link } from 'react-router-dom';
 import ContactModal from '../components/ContactModal';
 import { useSupabaseQuery } from '../hooks/use-supabase-query';
-import { fetchCourses, type Course } from '../services/api';
+import { fetchCourses, type Course, type SiteSettings } from '../services/api';
+import { useSiteSettings } from '../contexts/site-settings-context';
 
 // NOTE: 硬编码 fallback 数据
 const FALLBACK_COURSES: Course[] = [
@@ -22,6 +23,8 @@ export default function CourseFoundation() {
   const standardCourses = useMemo(() => allCourses.filter(c => c.category === 'standard'), [allCourses]);
   const guaranteeCourses = useMemo(() => allCourses.filter(c => c.category === 'guarantee'), [allCourses]);
 
+  const settings = useSiteSettings() as SiteSettings;
+
   return (
     <div className="pt-32 pb-24 min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
       <main className="max-w-7xl mx-auto px-6 py-12 md:py-20">
@@ -34,12 +37,12 @@ export default function CourseFoundation() {
         <section className="mb-20">
           <div className="flex flex-col items-start">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">Foundation Programs</span>
+              <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">{settings.foundation_hero_tag}</span>
               <h2 className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6">
-                艺术预科<br /><span className="text-primary">卓越课程</span>
+                {settings.foundation_hero_title_1}<br /><span className="text-primary">{settings.foundation_hero_title_2}</span>
               </h2>
               <p className="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
-                现代、极简的艺术留学进修方案。我们为志在顶尖美院的学生提供系统化的作品集指导与艺术史论支撑。
+                {settings.foundation_hero_description}
               </p>
             </div>
           </div>

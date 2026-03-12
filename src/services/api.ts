@@ -247,3 +247,80 @@ export async function submitContact(formData: ContactFormData): Promise<void> {
     });
     if (error) throw new Error(error.message);
 }
+// --------------------------------------------------------
+// 课程体系扩展
+// --------------------------------------------------------
+
+export interface CourseOverview {
+    id: number;
+    title: string;
+    description: string;
+    highlights: string[];
+    image_url: string;
+    link: string;
+    sort_order: number;
+}
+
+export interface CoachingLevel {
+    id: number;
+    level_num: string;
+    title: string;
+    features: string[];
+    sort_order: number;
+}
+
+export interface CoachingService {
+    id: number;
+    title: string;
+    description: string;
+    icon_name: string;
+    sort_order: number;
+}
+
+/**
+ * 获取课程体系概览页大卡片
+ */
+export async function fetchCourseOverviews(): Promise<CourseOverview[]> {
+    const { data, error } = await supabase
+        .from('course_overviews')
+        .select('*')
+        .order('sort_order', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching course overviews:', error);
+        return [];
+    }
+    return data || [];
+}
+
+/**
+ * 获取辅导课程阶梯
+ */
+export async function fetchCoachingLevels(): Promise<CoachingLevel[]> {
+    const { data, error } = await supabase
+        .from('coaching_levels')
+        .select('*')
+        .order('sort_order', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching coaching levels:', error);
+        return [];
+    }
+    return data || [];
+}
+
+/**
+ * 获取辅导课程增益服务
+ */
+export async function fetchCoachingServices(): Promise<CoachingService[]> {
+    const { data, error } = await supabase
+        .from('coaching_services')
+        .select('*')
+        .order('sort_order', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching coaching services:', error);
+        return [];
+    }
+    return data || [];
+}

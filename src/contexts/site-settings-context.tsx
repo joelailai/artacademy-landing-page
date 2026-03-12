@@ -50,6 +50,28 @@ const DEFAULT_SETTINGS: SiteSettings = {
     home_campus_milan_title: '米兰校区',
     home_campus_milan_desc: '位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。',
     home_campus_milan_image: '',
+
+    // 课程体系页面配置
+    courses_tag: 'Our Programs',
+    courses_title: '课程体系',
+    courses_description: '我们提供从零基础到专业提升的全方位艺术课程，助您成功升入理想的意大利艺术院校。',
+
+    // 预科详情页
+    foundation_hero_tag: 'Foundation Programs',
+    foundation_hero_title_1: '艺术预科',
+    foundation_hero_title_2: '卓越课程',
+    foundation_hero_description: '现代、极简的艺术留学进修方案。我们为志在顶尖美院的学生提供系统化的作品集指导与艺术史论支撑。',
+
+    // 辅导详情页
+    coaching_hero_tag: 'ITALIAN FINE ARTS ACADEMY',
+    coaching_hero_title_1: '转学 / 升学 / ',
+    coaching_hero_title_2: '毕业辅导',
+    coaching_hero_description: '专为意大利美院在读学生定制的专业进阶指导。我们采用极简画册排版逻辑，助力每一份作品集达到顶级策展水准。',
+    coaching_hero_image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDj4iAsweewE51ytwfJ_b7bS3v95S1GrOqg3qlESlwu4syHO-txU4fnV0144lu31ZPeMZ-seJFXr8uMr1QEWiTm43m5SwhcuZC45a8ye9vlIqEd7XuAHuotuZlk4aAs0fJ0GwzynDksILpQpYPfzxevXYyu6MvoS_hffkN96Tzi5du4aJ3GJ68FUdTo192mX2w_JF-Z5SYSeTUczxPuDQzxZcnTMqEQ5ByIK3GPhsHjB77Njuf630J8mWScMTox5WNy2IYdAZafhoq9',
+    coaching_cta_title_1: '准备好开启你的',
+    coaching_cta_title_2: '艺术进阶',
+    coaching_cta_description: '加入我们，与来自布雷拉、都灵、博洛尼亚等顶尖美院的导师一起，重塑你的艺术语言。',
+    coaching_cta_button: '获取免费作品集评估',
 };
 
 const SiteSettingsContext = createContext<SiteSettings>(DEFAULT_SETTINGS);
