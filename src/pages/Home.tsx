@@ -57,10 +57,10 @@ const Stats = () => {
   const settings = useSiteSettings() as SiteSettings;
 
   const stats = [
-    { icon: <Clock size={24} />, value: settings.stat_years || '10+', label: '年专注意大利艺术教育' },
-    { icon: <GraduationCap size={24} />, value: settings.stat_success_cases || '350+', label: '成功升入顶尖美院学员' },
-    { icon: <TrendingUp size={24} />, value: settings.stat_acceptance_rate || '98%', label: '核心课程升学录取率' },
-    { icon: <Globe size={24} />, value: '2', label: '佛罗伦萨/米兰双校区' },
+    { icon: <Clock size={24} />, value: settings.stat_years || '10+', label: settings.stat_years_label || '年专注意大利艺术教育' },
+    { icon: <GraduationCap size={24} />, value: settings.stat_success_cases || '350+', label: settings.stat_success_cases_label || '成功升入顶尖美院学员' },
+    { icon: <TrendingUp size={24} />, value: settings.stat_acceptance_rate || '98%', label: settings.stat_acceptance_rate_label || '核心课程升学录取率' },
+    { icon: <Globe size={24} />, value: settings.stat_campuses || '2', label: settings.stat_campuses_label || '佛罗伦萨/米兰双校区' },
   ];
 
   return (
@@ -101,15 +101,15 @@ const Campuses = () => {
           <Link to="/campus/florence" className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer block">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcrlHoaQVhuR1sZUrMNYRzToTbwxbMts1qxtma1i_g9q85WNXgSZdDvvMeU7dY1_Iew52-wB_xXCmPH_FI5F5fskSPuTUq7ccHFOoa73SkMz68fU2c3y7pt0nKyjiN92YqOJcs1FhcfXEsPUf-48gyBH4g9GF0iQZqdNHhlKaObZkMuLpo6DXF23JcPCMO1N8qlHfnFlVFTnJT05M3y0K7NEjDrmu2d7mS0LWmNRMwN2Zm-IUzW6p5f0EEBrmevas2E8-DbmMO7MA4')` }}
+              style={{ backgroundImage: settings.home_campus_florence_image ? `url('${settings.home_campus_florence_image}')` : undefined }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8 w-full">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-primary text-xs font-bold tracking-widest mb-2">CAMPUS DI FIRENZE</div>
-                  <h3 className="text-3xl font-bold text-white mb-2">佛罗伦萨主校区</h3>
-                  <p className="text-white/70 text-sm max-w-sm">毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。</p>
+                  <div className="text-primary text-xs font-bold tracking-widest mb-2">{settings.home_campus_florence_tag || 'CAMPUS DI FIRENZE'}</div>
+                  <h3 className="text-3xl font-bold text-white mb-2">{settings.home_campus_florence_title || '佛罗伦萨主校区'}</h3>
+                  <p className="text-white/70 text-sm max-w-sm">{settings.home_campus_florence_desc || '毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
                   <ArrowRight size={20} />
@@ -122,15 +122,15 @@ const Campuses = () => {
           <Link to="/campus/milan" className="group relative h-[500px] rounded-2xl overflow-hidden cursor-pointer block">
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVdoCq9YPv0NsUGrE10tY3GmgtphYVSr_pc2mA4oBECUTkqekNAuvbciEsgEwC2JXifkV83iZmSp1n6QwlASayhM-e8MRj_lCidVQV0NRruSAzsjGGeMTl9NSWjfW07o3G0UcDeLvxQNqPmMHjDx9bwPlGal7TmDmf-rM5Rx3nj_cedFTTc8ww8_F-lUcVgSV0g9G99B8K1uhGvjfsiNDyxcRS8Hy83M3l7x36n4fZFWwSTK2HK5RaIlsAgJW8q2HWIjY52w4GLZOA')` }}
+              style={{ backgroundImage: settings.home_campus_milan_image ? `url('${settings.home_campus_milan_image}')` : undefined }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8 w-full">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-primary text-xs font-bold tracking-widest mb-2">CAMPUS DI MILANO</div>
-                  <h3 className="text-3xl font-bold text-white mb-2">米兰校区</h3>
-                  <p className="text-white/70 text-sm max-w-sm">位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。</p>
+                  <div className="text-primary text-xs font-bold tracking-widest mb-2">{settings.home_campus_milan_tag || 'CAMPUS DI MILANO'}</div>
+                  <h3 className="text-3xl font-bold text-white mb-2">{settings.home_campus_milan_title || '米兰校区'}</h3>
+                  <p className="text-white/70 text-sm max-w-sm">{settings.home_campus_milan_desc || '位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
                   <ArrowRight size={20} />

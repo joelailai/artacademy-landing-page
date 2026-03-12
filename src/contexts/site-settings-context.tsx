@@ -35,6 +35,21 @@ const DEFAULT_SETTINGS: SiteSettings = {
     about_stat_cases_label: 'Successful Students',
     about_image_url: '',
     about_contact_title: '联系我们',
+    // Stats 模块标签
+    stat_years_label: '年专注意大利艺术教育',
+    stat_success_cases_label: '成功升入顶尖美院学员',
+    stat_acceptance_rate_label: '核心课程升学录取率',
+    stat_campuses: '2',
+    stat_campuses_label: '佛罗伦萨/米兰双校区',
+    // Campuses 校区卡片
+    home_campus_florence_tag: 'CAMPUS DI FIRENZE',
+    home_campus_florence_title: '佛罗伦萨主校区',
+    home_campus_florence_desc: '毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。',
+    home_campus_florence_image: '',
+    home_campus_milan_tag: 'CAMPUS DI MILANO',
+    home_campus_milan_title: '米兰校区',
+    home_campus_milan_desc: '位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。',
+    home_campus_milan_image: '',
 };
 
 const SiteSettingsContext = createContext<SiteSettings>(DEFAULT_SETTINGS);
