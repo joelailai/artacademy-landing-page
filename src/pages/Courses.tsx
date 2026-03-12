@@ -42,7 +42,7 @@ export default function Courses() {
         <div className="text-center mb-16">
           <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.courses_tag}</div>
           <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-6">{settings.courses_title}</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto whitespace-pre-wrap">
             {settings.courses_description}
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function Courses() {
                     <Icon size={32} />
                   </div>
                   <h2 className="text-3xl font-bold">{item.title}</h2>
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {item.description}
                   </p>
                   <ul className="space-y-3">

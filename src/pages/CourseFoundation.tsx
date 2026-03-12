@@ -41,7 +41,7 @@ export default function CourseFoundation() {
               <h2 className="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6">
                 {settings.foundation_hero_title_1}<br /><span className="text-primary">{settings.foundation_hero_title_2}</span>
               </h2>
-              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed">
+              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed whitespace-pre-wrap">
                 {settings.foundation_hero_description}
               </p>
             </div>

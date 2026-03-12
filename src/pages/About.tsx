@@ -12,7 +12,7 @@ export default function About() {
         <div className="text-center mb-16">
           <div className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{settings.about_tag}</div>
           <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-6" dangerouslySetInnerHTML={{ __html: settings.about_title }}></h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto whitespace-pre-wrap">
             {settings.about_subtitle}
           </p>
         </div>
@@ -20,10 +20,10 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
           <div className="space-y-8">
             <h2 className="text-3xl font-bold">{settings.about_mission_title}</h2>
-            <p className="text-slate-600 leading-relaxed text-lg">
+            <p className="text-slate-600 leading-relaxed text-lg whitespace-pre-wrap">
               {settings.about_mission_p1}
             </p>
-            <p className="text-slate-600 leading-relaxed text-lg">
+            <p className="text-slate-600 leading-relaxed text-lg whitespace-pre-wrap">
               {settings.about_mission_p2}
             </p>
 

@@ -40,7 +40,7 @@ const Hero = () => {
           {settings.hero_title_1 || '在文艺复兴的摇篮'}<br />
           <span className="text-primary italic font-serif font-medium tracking-normal">{settings.hero_title_2 || '开启你的艺术未来'}</span>
         </h1>
-        <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto font-light leading-relaxed whitespace-pre-wrap">
           {settings.hero_subtitle || '专业意大利艺术留学预科教育，连接佛罗伦萨与世界，为每一位追求纯粹艺术的灵魂开启通往顶尖美院之门。'}
         </p>
         <div className="flex justify-center items-center pt-8">
@@ -109,7 +109,7 @@ const Campuses = () => {
                 <div>
                   <div className="text-primary text-xs font-bold tracking-widest mb-2">{settings.home_campus_florence_tag || 'CAMPUS DI FIRENZE'}</div>
                   <h3 className="text-3xl font-bold text-white mb-2">{settings.home_campus_florence_title || '佛罗伦萨主校区'}</h3>
-                  <p className="text-white/70 text-sm max-w-sm">{settings.home_campus_florence_desc || '毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。'}</p>
+                  <p className="text-white/70 text-sm max-w-sm whitespace-pre-wrap">{settings.home_campus_florence_desc || '毗邻百花大教堂，沉浸式感受文艺复兴的艺术气息，提供最纯正的意式艺术教育。'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
                   <ArrowRight size={20} />
@@ -130,7 +130,7 @@ const Campuses = () => {
                 <div>
                   <div className="text-primary text-xs font-bold tracking-widest mb-2">{settings.home_campus_milan_tag || 'CAMPUS DI MILANO'}</div>
                   <h3 className="text-3xl font-bold text-white mb-2">{settings.home_campus_milan_title || '米兰校区'}</h3>
-                  <p className="text-white/70 text-sm max-w-sm">{settings.home_campus_milan_desc || '位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。'}</p>
+                  <p className="text-white/70 text-sm max-w-sm whitespace-pre-wrap">{settings.home_campus_milan_desc || '位于全球时尚与设计之都，紧密连接产业前沿，专注于设计与时尚类专业辅导。'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
                   <ArrowRight size={20} />

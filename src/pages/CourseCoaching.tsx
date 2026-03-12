@@ -46,7 +46,7 @@ export default function CourseCoaching() {
               {settings.coaching_hero_title_1}<br />
               <span className="text-primary">{settings.coaching_hero_title_2}</span>
             </h2>
-            <p className="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-wrap">
               {settings.coaching_hero_description}
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function CourseCoaching() {
                 <div key={service.id} className="bg-white dark:bg-slate-900 p-10 flex flex-col items-center text-center border border-slate-100 dark:border-slate-800">
                   <Icon className="w-10 h-10 mb-6 text-primary" />
                   <h5 className="text-lg font-bold mb-3 tracking-tight">{service.title}</h5>
-                  <p className="text-sm text-slate-500 leading-relaxed">{service.description}</p>
+                  <p className="text-sm text-slate-500 leading-relaxed whitespace-pre-wrap">{service.description}</p>
                 </div>
               );
             })}
@@ -119,7 +119,7 @@ export default function CourseCoaching() {
                 {settings.coaching_cta_title_1}<br />
                 <span className="text-primary italic">{settings.coaching_cta_title_2}</span>之旅了吗？
               </h4>
-              <p className="text-slate-400 max-w-md">{settings.coaching_cta_description}</p>
+              <p className="text-slate-400 max-w-md whitespace-pre-wrap">{settings.coaching_cta_description}</p>
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col justify-center mt-8 lg:mt-0">
               <button
