@@ -1,0 +1,55 @@
+=== Fixing Testimonials ===
+[florence] id=1 Zhang Chang: FIXING
+  BEFORE: "我对意大利美院的教学风格以及作
+品的要求都不太了解，所以通过老
+师们的帮助我掌握了很多重要的信
+息。短期之内在专业..."
+  AFTER:  "我对意大利美院的教学风格以及作品的要求都不太了解，所以通过老师们的帮助我掌握了很多重要的信息。短期之内在专业老师的帮助下..."
+  OK
+[florence] id=2 Hao Xin: FIXING
+  BEFORE: "很高兴可以顺利入学佛美策展专
+业，真的很感谢亚平宁工作室的
+所有老师给予我的帮助。我是今
+年 7 月初才开始准备作..."
+  AFTER:  "很高兴可以顺利入学佛美策展专业，真的很感谢亚平宁工作室的所有老师给予我的帮助。我是今年 7 月初才开始准备作品集，时间非..."
+  OK
+[florence] id=3 Xu Bingkun: FIXING
+  BEFORE: "我来意大利之前和刚到意大利的那
+段时间还挺迷茫的，对于一个完全
+陌生的学习环境和考试系统无从下
+手。我在亚平宁最早..."
+  AFTER:  "我来意大利之前和刚到意大利的那段时间还挺迷茫的，对于一个完全陌生的学习环境和考试系统无从下手。我在亚平宁最早上的是艺术史..."
+  OK
+[milan] id=4 Chen Jiawen: FIXING
+  BEFORE: "亚平宁工作室在作品集制作和艺术
+史课程都给了我巨大的帮助！让我
+对自己的专业和当代艺术都有了些
+初步的了解，学习东..."
+  AFTER:  "亚平宁工作室在作品集制作和艺术史课程都给了我巨大的帮助！让我对自己的专业和当代艺术都有了些初步的了解，学习东西也更系统了..."
+  OK
+[milan] id=5 Tan Hairuo: FIXING
+  BEFORE: "在工作室李老师、王老师和 Anna
+老师的系统指导下，我对于这个专
+业的创作方法和方向都有了更多新
+的认知，对于艺..."
+  AFTER:  "在工作室李老师、王老师和 Anna老师的系统指导下，我对于这个专业的创作方法和方向都有了更多新的认知，对于艺术史的了解也..."
+  OK
+[milan] id=6 Dong Feier: FIXING
+  BEFORE: "服装设计的专业课对我帮助很大，
+帮助我从服设的小白迈入了专业的
+第一道门槛（ps：专业老师认真又
+可爱）。还有亚平..."
+  AFTER:  "服装设计的专业课对我帮助很大，帮助我从服设的小白迈入了专业的第一道门槛（ps：专业老师认真又可爱）。还有亚平宁主教设计基..."
+  OK
+
+=== milan admission_results full URLs ===
+  [0] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/milan/2025_14.png
+  [1] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/milan/2025_12.png
+  [2] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/milan/2025_11.png
+  ... (20 total)
+
+=== florence admission_results full URLs ===
+  [0] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/florence/2025_13.png
+  [1] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/florence/2025_06.png
+  [2] https://ypfnwbkjojocdjwvanfe.supabase.co/storage/v1/object/public/images/admission-results/florence/2025_05.png
+  ... (20 total)
