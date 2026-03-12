@@ -144,6 +144,12 @@ const Campuses = () => {
   );
 };
 
+// NOTE: 课程编号到详情页路由的映射
+const CURRICULUM_LINKS: Record<string, string> = {
+  '01': '/courses/foundation',
+  '02': '/courses/coaching',
+};
+
 const Curriculum = () => {
   const settings = useSiteSettings() as SiteSettings;
   const FALLBACK_CURRICULUMS: HomeCurriculum[] = [
@@ -172,6 +178,7 @@ const Curriculum = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-slate-200 rounded-2xl overflow-hidden">
           {curriculums.map((item, index) => {
             const Icon = IconComponents[item.icon_name] || Palette;
+            const detailLink = CURRICULUM_LINKS[item.number_label] || '/courses';
             return (
               <div key={item.id} className={`p-10 lg:p-14 bg-slate-50/50 hover:bg-white transition-colors ${index % 2 === 0 ? 'border-b lg:border-b-0 lg:border-r border-slate-200' : ''}`}>
                 <div className="flex items-start justify-between mb-12">
@@ -200,7 +207,6 @@ const Curriculum = () => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Programma Principale</h4>
                     <ul className="space-y-2">
                       {item.core_points.map((point, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm font-medium">
@@ -208,6 +214,12 @@ const Curriculum = () => {
                         </li>
                       ))}
                     </ul>
+                    <Link
+                      to={detailLink}
+                      className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-background-dark hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all"
+                    >
+                      Programma Principale <ArrowRight size={16} />
+                    </Link>
                   </div>
                 </div>
               </div>
